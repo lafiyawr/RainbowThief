@@ -95,17 +95,18 @@ public class SkySpawn4 : MonoBehaviour
                                 {
 
                                     TimelineControl.StartTimeline(_playableDirector);
-                                    ObjectSpawner.SpawnObject(rainbow, distance);
+                                   // ObjectSpawner.SpawnObject(rainbow, distance);
 
-                                    /*
+
+                                   
                                     var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
                                     var newRot = Camera.main.transform.rotation;
 
                                   
                                     rainbow.transform.position = newPos;
                                     rainbow.transform.rotation = newRot;
-                                    */
-                                   
+                                  
+                                    rainbow.SetActive(true);
                                     _text.text = "rainbow appeared!";
                                     spawnRainbow= false;
 

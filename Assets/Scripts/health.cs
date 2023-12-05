@@ -16,6 +16,9 @@ public class health : MonoBehaviour
     public int damage;
     public TMP_Text counter;
     public Slider heathBar;
+    public Animator anim;
+    public Animator parentAnim;
+    public GameObject bossHolder;
     
 
 
@@ -38,11 +41,22 @@ public class health : MonoBehaviour
             else
             {
                 currentHealth = 0;
-                print("penguin hurt!");
-                onBossHurt?.Invoke();
-                Destroy(gameObject);
+                StartCoroutine(bossHurt());
+              //  print("penguin hurt!");
+              //  onBossHurt?.Invoke();
+              //  Destroy(gameObject);
                
             }
         }
+    }
+
+     IEnumerator bossHurt()
+    {
+        parentAnim.speed = 0;
+        anim.Play("boss-hurting");
+        yield return new WaitForSeconds(1f);
+        Destroy(bossHolder);
+        yield return new WaitForSeconds(.5f);
+        onBossHurt?.Invoke();
     }
 }
