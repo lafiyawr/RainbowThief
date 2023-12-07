@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.Playables;
 
 
 
@@ -19,18 +19,27 @@ public class health : MonoBehaviour
     public Animator anim;
     public Animator parentAnim;
     public GameObject bossHolder;
-    
+    private GameObject timelineObj;
+    private PlayableDirector _playableDirector;
+    bool ishurt = false;
+
 
 
 
     public delegate void OnBossHurt();
     public static OnBossHurt onBossHurt;
 
+    public void Start()
+    {
+        timelineObj = GameObject.FindGameObjectWithTag("timeline");
+        _playableDirector = timelineObj.GetComponent<PlayableDirector>();
+    }
+
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "star")
         {
-            if (currentHealth > 1)
+            if (currentHealth > 1 && !ishurt)
             {
 
                 currentHealth -= damage;
@@ -40,11 +49,13 @@ public class health : MonoBehaviour
             }
             else
             {
-                currentHealth = 0;
-                StartCoroutine(bossHurt());
-              //  print("penguin hurt!");
-              //  onBossHurt?.Invoke();
-              //  Destroy(gameObject);
+                if (!ishurt)
+                {
+                    currentHealth = 0;
+                    StartCoroutine(bossHurt()); 
+                }
+               
+             
                
             }
         }
@@ -52,11 +63,14 @@ public class health : MonoBehaviour
 
      IEnumerator bossHurt()
     {
+       //Stop him from moving;
         parentAnim.speed = 0;
+        ishurt = true;
+        TimelineControl.StartTimeline(_playableDirector);
         anim.Play("boss-hurting");
-        yield return new WaitForSeconds(1f);
-        Destroy(bossHolder);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(3f);
         onBossHurt?.Invoke();
+        Destroy(bossHolder);
+       
     }
 }

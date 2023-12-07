@@ -11,12 +11,28 @@ public class RainbowManager : MonoBehaviour
     public GameObject[] rainbowPrefabs;
     public string[] rainbowNames;
     public int rainbowTracker = 0;
-    int distance = 5;
+    int distance = 2;
     [SerializeField]
     private PlayableDirector _playableDirector;
     public bool _rainbowEnabled = false;
     public GameObject bossMap;
     GameObject rainbowShard;
+    private GameObject currentShard;
+
+
+
+
+
+
+    private void OnEnable()
+    {
+        health.onBossHurt += RainbowShard;
+    }
+
+    private void OnDisable()
+    {
+        health.onBossHurt -= RainbowShard;
+    }
 
 
 
@@ -32,17 +48,15 @@ public class RainbowManager : MonoBehaviour
                 RaycastHit rayHit;
                 if (Physics.Raycast(ray, out rayHit, 100.0f))
                 {
-                    if (rayHit.collider.tag == rainbowNames[rainbowTracker]) //I test tag, but you could what you want..
+                    if (rayHit.collider.tag == rainbowNames[rainbowTracker]) 
                     {
-                        print("left clicked");
                         rainbowCounter[rainbowTracker].SetActive(true);
-
-                        rayHit.transform.gameObject.SetActive(false);
-                        if(rainbowTracker <1)
-                        {
-                            map();
-                        }
-
+                     currentShard = GameObject.FindGameObjectWithTag(rainbowNames[rainbowTracker]);
+                        print(currentShard.name);
+                        TimelineControl.StartTimeline(_playableDirector);
+                        //fallback in case it doesn't destroy like it's supposed to. :\
+                        currentShard.SetActive(false);
+                        Destroy(currentShard);
                         rainbowTracker++;
                         _rainbowEnabled = false;
 
@@ -57,43 +71,22 @@ public class RainbowManager : MonoBehaviour
 
 
 
-    void Addpiece()
+    public void RainbowShard()
     {
-       
-        spawnRainbow();
-        _rainbowEnabled= true;
-        _playableDirector.Play();
+
+      
+        ObjectSpawner.SpawnObject(rainbowPrefabs[rainbowTracker], distance);
+        _rainbowEnabled = true;
+      TimelineControl.StartTimeline(_playableDirector);
+     
+     
     }
 
-
-    public void spawnRainbow()
-    {
-        var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
-        var newRot = Camera.main.transform.rotation;
-        if(rainbowTracker== 0)
-        {
-            Instantiate(rainbowPrefabs[rainbowTracker], newPos, newRot);
-         
-        } else
-        {
-            rainbowShard = GameObject.FindGameObjectWithTag(rainbowNames[rainbowTracker]);
-            rainbowShard.GetComponent<SpriteRenderer>().enabled = true;
-        }
-        
-    }
-
-    public void map()
-    {
-        var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
-        var newRot = Camera.main.transform.rotation;
-        Instantiate(bossMap, newPos, newRot);
-    }
+    
 
 
-    private void OnEnable()
-    {
-        health.onBossHurt += Addpiece;
-    }
+
+  
 
 
 }

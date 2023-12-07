@@ -20,6 +20,7 @@ public class SkySpawn4 : MonoBehaviour
     private PlayableDirector _playableDirector;
     public bool spawnRainbow = false;
     public float distance;
+    public bool testing = false;
 
     private string _channel = "sky";
     void OnEnable()
@@ -68,6 +69,33 @@ public class SkySpawn4 : MonoBehaviour
 
       if (spawnRainbow)
         {
+
+            if(testing== true)
+            {
+
+                TimelineControl.StartTimeline(_playableDirector);
+                // ObjectSpawner.SpawnObject(rainbow, distance);
+
+
+
+                var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
+                var newRot = Camera.main.transform.rotation;
+
+
+                rainbow.transform.position = newPos;
+                rainbow.transform.rotation = newRot;
+
+                rainbow.SetActive(true);
+                _text.text = "rainbow appeared!";
+                spawnRainbow = false;
+
+
+            }
+
+
+
+
+
 
 #if UNITY_EDITOR
             if (Input.GetMouseButtonDown(0))

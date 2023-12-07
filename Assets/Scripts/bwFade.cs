@@ -14,8 +14,8 @@ public class bwFade : MonoBehaviour
     public float lerpDuration = 5;
     float startValue = 0;
     float endValue = -100;
-    float valueToLerp;
     public bool startFade = false;
+    public bool endFade = false;
     void Start()
     {
         var getVolume = GetComponent<Volume>();
@@ -30,7 +30,7 @@ public class bwFade : MonoBehaviour
 
         if (startFade)
         {
-            // this trigger the post processing color saturation to fade to black and white after a certain duration. Will eventually be triggered after an animation sequence
+            // this trigger the post processing color saturation to fade to black and white after a certain duration.
             if (timeElapsed < lerpDuration)
             {
                 bwgrading.saturation.value = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
@@ -46,6 +46,24 @@ public class bwFade : MonoBehaviour
 
         }
 
+        if (endFade)
+        {
+            // this trigger the post processing color saturation to fade to black and white after a certain duration.
+            if (timeElapsed < lerpDuration)
+            {
+                bwgrading.saturation.value = Mathf.Lerp(endValue, startValue, timeElapsed / lerpDuration);
+                timeElapsed += Time.deltaTime;
+                //  print(timeElapsed);
+
+            }
+            else
+            {
+                endFade = false;
+                return;
+            }
+
+        }
+
 
 
     }
@@ -53,5 +71,11 @@ public class bwFade : MonoBehaviour
     public void fadeStart()
     {
         startFade = true;
+    }
+
+    public void fadeEnd()
+    {
+        timeElapsed = 0;
+        endFade = true;
     }
 }
