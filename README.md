@@ -12,6 +12,8 @@ You fight him 3 times, each time getting a piece of the rainbow back. After the 
 
 He hides out in two additional locations aside from where you first see him, which is where the VPS come into play. 
 
+You can view a [demo here](https://youtu.be/89Uikzmx_j0)
+
 # ISSUES/QUESTIONS
 1- Still having trouble with Occlusion and Segmentation. It makes the rainbow flicker. I've seen a few folks in Discord have similar issues. Jesus is helping me troubleshoot via the discord at the moment. Hopefully we can find a solution.
 
