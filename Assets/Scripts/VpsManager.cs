@@ -4,9 +4,14 @@ using Niantic.Lightship.AR.PersistentAnchors;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using static VpsManager;
 
 
-public class vpstest : MonoBehaviour
+public class VpsManager : MonoBehaviour
+
 {
     [SerializeField]
     private ARLocationManager _arLocationManager;
@@ -17,6 +22,12 @@ public class vpstest : MonoBehaviour
     private ARLocation[] _arLocation;
     [SerializeField]
     private PlayableDirector _playableDirector;
+
+    public delegate IEnumerator LocationTracking();
+    public static event LocationTracking locationTracking;
+
+    public delegate IEnumerator LocationFound();
+    public static event LocationFound locationFound;
 
     private void OnEnable()
     {
@@ -72,7 +83,7 @@ public class vpstest : MonoBehaviour
             if (_AnchorTrackingStateText != null)
             {
                 _AnchorTrackingStateText.text = $"Anchor Tracked";
-                
+                StartCoroutine(locationFound());
                 //Resume the timeline once the location has been tracked.
                 TimelineControl.StartTimeline(_playableDirector);
             }
@@ -89,7 +100,7 @@ public class vpstest : MonoBehaviour
     //This targets a particular location based on array number. This will allow me to start tracking different locations at key points in the game
     public void locationChanger(int locNum)
     {
-        
+        StartCoroutine(locationTracking());
         _arLocationManager.SetARLocations(_arLocation[locNum]);
         _arLocationManager.StartTracking();
         _AnchorTrackingStateText.text = _arLocation[locNum].name;

@@ -18,9 +18,11 @@ public class RainbowManager : MonoBehaviour
     public GameObject bossMap;
     GameObject rainbowShard;
     private GameObject currentShard;
+    public AudioSource rainbowShardGlow;
+    public AudioSource rainbowShardClick;
 
 
-
+ 
 
 
 
@@ -50,6 +52,8 @@ public class RainbowManager : MonoBehaviour
                 {
                     if (rayHit.collider.tag == rainbowNames[rainbowTracker]) 
                     {
+                      rainbowShardGlow.Stop();
+                    rainbowShardClick.Play();
                         rainbowCounter[rainbowTracker].SetActive(true);
                      currentShard = GameObject.FindGameObjectWithTag(rainbowNames[rainbowTracker]);
                         print(currentShard.name);
@@ -76,6 +80,7 @@ public class RainbowManager : MonoBehaviour
 
       
         ObjectSpawner.SpawnObject(rainbowPrefabs[rainbowTracker], distance);
+        rainbowShardGlow.Play();
         _rainbowEnabled = true;
       TimelineControl.StartTimeline(_playableDirector);
      

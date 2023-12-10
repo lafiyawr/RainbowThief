@@ -22,6 +22,9 @@ public class health : MonoBehaviour
     private GameObject timelineObj;
     private PlayableDirector _playableDirector;
     bool ishurt = false;
+    public float bossSpeed = 1;
+    public AudioSource bossTheme;
+    public AudioSource bossCurse;
 
 
 
@@ -33,6 +36,8 @@ public class health : MonoBehaviour
     {
         timelineObj = GameObject.FindGameObjectWithTag("timeline");
         _playableDirector = timelineObj.GetComponent<PlayableDirector>();
+        parentAnim.speed= bossSpeed;
+        bossTheme.Play();
     }
 
     void OnCollisionEnter(Collision col)
@@ -65,6 +70,8 @@ public class health : MonoBehaviour
     {
        //Stop him from moving;
         parentAnim.speed = 0;
+      bossTheme.Stop();
+       bossCurse.Play();
         ishurt = true;
         TimelineControl.StartTimeline(_playableDirector);
         anim.Play("boss-hurting");
