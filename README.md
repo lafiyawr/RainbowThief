@@ -12,7 +12,7 @@ You fight him 3 times, each time getting a piece of the rainbow back. After the 
 
 He hides out in two additional locations aside from where you first see him, which is where the VPS come into play. 
 
-You can view a [demo here](https://youtu.be/89Uikzmx_j0)
+You can view a [demo here](https://youtu.be/89Uikzmx_j0) (Sound has been added. I just need to take a new video)
 
 # ISSUES/QUESTIONS
 1- Still having trouble with Occlusion and Segmentation. It makes the rainbow flicker. I've seen a few folks in Discord have similar issues. Jesus is helping me troubleshoot via the discord at the moment. Hopefully we can find a solution.
@@ -26,7 +26,7 @@ You can view a [demo here](https://youtu.be/89Uikzmx_j0)
 The main scene is called "Rainbow 1" (Though I will probably change that soon).
 
 Again, most of the functionality is controlled by the timeline which is on the "TimelineManager" gameobject. 
-The semantic code to setup the sky segmentation and spawn the rainbow when you tap the sky is on "SemanticManager". The script is called "SkySpawn4". (It will be renamed).
+The semantic code to setup the sky segmentation and spawn the rainbow when you tap the sky is on "SemanticManager". The script is called "SemanticManager" as well. 
 
 The fade in/out post processing code is on "Global Volume". The script is called "BWFade".
 
@@ -49,17 +49,16 @@ If you just want to test each location seperately in the editor, I also have two
 
 # TO-DO LIST
 
-1. Add sound
-2. Hide Debug text
-3. Add additional instructions
-4. Make the penguin move faster in subsequent rounds
-5. Organize hierarchy and timeline
-6. Clean up unused files
-7. Add more comments to the scripts
-8. Fix the particles not dissapearing with the rainbow shard
-9. Spruce up the start and ending screens
-10. Have the shooting stars destroy after a few seconds
-11. Create a more comprehensive readme (and the tutorial)
+
+1. Hide Debug text
+2. Add additional instructions
+3. Organize hierarchy and timeline
+4. Clean up unused files
+5. Add more comments to the scripts
+6. Fix the particles not dissapearing with the rainbow shard
+7. Spruce up the start and ending screens
+8. Have the shooting stars destroy after a few seconds
+9. Create a more comprehensive readme (and the tutorial)
 
 
 
