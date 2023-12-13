@@ -1,17 +1,17 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//This script controls when the background music playsE
 
 public class AudioManager : MonoBehaviour
 {
     public AudioSource mainTheme;
-    private float fadeTime = 3f;
+    private float _fadeTime = 3f;
 
 
     private void OnEnable()
     {
-      SemanticManager.skyTapped += FadeOut;
+        SemanticManager.skyTapped += FadeOut;
         VpsManager.locationTracking += FadeIn;
         VpsManager.locationFound += FadeOut;
     }
@@ -24,10 +24,10 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
-      mainTheme.Play();
+        mainTheme.Play();
     }
 
 
@@ -35,17 +35,17 @@ public class AudioManager : MonoBehaviour
     public void FadeOutTrigger()
     {
 
-        print("working");
+
         StartCoroutine(FadeOut());
     }
-   
-    public  IEnumerator FadeOut()
+
+    public IEnumerator FadeOut()
     {
         float currentVolume = mainTheme.volume;
         print("music ending");
         while (mainTheme.volume > 0)
         {
-            mainTheme.volume -= currentVolume * Time.deltaTime / fadeTime;
+            mainTheme.volume -= currentVolume * Time.deltaTime / _fadeTime;
 
             yield return null;
         }
@@ -56,24 +56,24 @@ public class AudioManager : MonoBehaviour
         yield return null;
     }
 
-  
 
-   public  IEnumerator FadeIn()
-   {
-       float startVolume = 0.2f;
 
-       mainTheme.volume = 0;
-       mainTheme.Play();
+    public IEnumerator FadeIn()
+    {
+        float _startVolume = 0.2f;
 
-       while (mainTheme.volume < 1.0f)
-       {
-           mainTheme.volume += startVolume * Time.deltaTime / fadeTime;
+        mainTheme.volume = 0;
+        mainTheme.Play();
 
-           yield return null;
-       }
+        while (mainTheme.volume < 1.0f)
+        {
+            mainTheme.volume += _startVolume * Time.deltaTime / _fadeTime;
 
-       mainTheme.volume = 1f;
-   }
+            yield return null;
+        }
 
-  
+        mainTheme.volume = 1f;
+    }
+
+
 }

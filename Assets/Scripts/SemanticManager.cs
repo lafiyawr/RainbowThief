@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
-using static health;
 
 public class SemanticManager : MonoBehaviour
 
@@ -22,7 +21,7 @@ public class SemanticManager : MonoBehaviour
     private PlayableDirector _playableDirector;
     public bool spawnRainbow = false;
     public float distance;
-    public bool testing = false;
+    public bool debugSegmentation = false;
 
     private string _channel = "sky";
 
@@ -75,32 +74,11 @@ public class SemanticManager : MonoBehaviour
             return;
         }
 
-      if (spawnRainbow)
+        if (spawnRainbow)
         {
 
 
-            //This is just for debugging in the Editor when video playback mode is turned off and you can't trigger the sky tap. In Play Mode set the "testing" bool to true
-            // on the "SemanticManager" Gameobject after the instructions say "tap the sky" in order to trigger the animation and continue testing.
-            
-            if(testing== true)
-            {
 
-                TimelineControl.StartTimeline(_playableDirector);
-              
-                StartCoroutine(skyTapped());
-                var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
-                var newRot = Camera.main.transform.rotation;
-
-              
-                rainbow.transform.position = newPos;
-                rainbow.transform.rotation = newRot;
-
-                rainbow.SetActive(true);
-                _text.text = "rainbow has appeared!";
-                spawnRainbow = false;
-
-
-            }
 
 
 
@@ -132,7 +110,7 @@ public class SemanticManager : MonoBehaviour
                                 if (_channel == _preferredSegmentation)
                                 {
 
-                                    TimelineControl.StartTimeline(_playableDirector);   
+                                    TimelineControl.StartTimeline(_playableDirector);
                                     StartCoroutine(skyTapped());
 
                                     var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
@@ -140,10 +118,10 @@ public class SemanticManager : MonoBehaviour
 
                                     rainbow.transform.position = newPos;
                                     rainbow.transform.rotation = newRot;
-                                  
+
                                     rainbow.SetActive(true);
-                                  //  _text.text = "rainbow appeared!";
-                                    spawnRainbow= false;
+                                    //  _text.text = "rainbow appeared!";
+                                    spawnRainbow = false;
 
                                 }
                                 else
@@ -162,21 +140,48 @@ public class SemanticManager : MonoBehaviour
                         }
                     }
             }
-       }
+
+            //This is just for debugging in the Editor when video playback mode is turned off and you can't trigger the sky tap. In Play Mode set the "degubSegmentation" bool to true
+            // on the "SemanticManager" Gameobject after the instructions say "tap the sky" in order to trigger the animation and continue testing.
+
+            if (debugSegmentation == true)
+            {
+
+                TimelineControl.StartTimeline(_playableDirector);
+
+                StartCoroutine(skyTapped());
+                var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
+                var newRot = Camera.main.transform.rotation;
+
+
+                rainbow.transform.position = newPos;
+                rainbow.transform.rotation = newRot;
+
+                rainbow.SetActive(true);
+                _text.text = "rainbow has appeared!";
+                spawnRainbow = false;
+
+
+            }
+
+
+
+        }
 
     }
 
 
 
 
-    public void boolToggle()
+    public void BoolToggle()
     {
         if (spawnRainbow)
         {
             spawnRainbow = false;
-        } else
+        }
+        else
         {
-            spawnRainbow= true;
+            spawnRainbow = true;
         }
     }
 

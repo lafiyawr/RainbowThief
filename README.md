@@ -52,13 +52,10 @@ If you just want to test each location seperately in the editor, I also have two
 
 1. Hide Debug text
 2. Add additional instructions
-3. Organize hierarchy and timeline
-4. Clean up unused files
-5. Add more comments to the scripts
-6. Fix the particles not dissapearing with the rainbow shard
-7. Spruce up the start and ending screens
-8. Have the shooting stars destroy after a few seconds
-9. Create a more comprehensive readme (and the tutorial)
+3. Clean up unused files
+4. Fix the particles not dissapearing with the rainbow shard
+5. Spruce up the start and ending screens
+6. Create a more comprehensive readme (and the tutorial)
 
 
 

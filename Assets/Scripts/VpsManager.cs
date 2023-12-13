@@ -1,13 +1,10 @@
 using Niantic.Lightship.AR.Loader;
 using Niantic.Lightship.AR.LocationAR;
 using Niantic.Lightship.AR.PersistentAnchors;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using static VpsManager;
 
 
 public class VpsManager : MonoBehaviour
@@ -97,17 +94,17 @@ public class VpsManager : MonoBehaviour
         }
     }
 
-    //This targets a particular location based on array number. This will allow me to start tracking different locations at key points in the game
+    //This lets you target a specific location and start tracking it. The array number is based on the list of locations in the "AR Location Manager"
     public void locationChanger(int locNum)
     {
         StartCoroutine(locationTracking());
         _arLocationManager.SetARLocations(_arLocation[locNum]);
         _arLocationManager.StartTracking();
         _AnchorTrackingStateText.text = _arLocation[locNum].name;
-        print(_AnchorTrackingStateText.name);
+        //  print(_AnchorTrackingStateText.name);
     }
 
-    //stop the current tracking so that a new location can be  tracked. It works but gives me an error message. Not sure why.
+    //This stops the current tracking so that a new location can be  tracked. You have to stop the tracking in order to track a new location.
     public void resetTracking()
     {
         _arLocationManager.StopTracking();

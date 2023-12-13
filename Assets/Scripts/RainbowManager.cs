@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -17,23 +14,18 @@ public class RainbowManager : MonoBehaviour
     public bool _rainbowEnabled = false;
     public GameObject bossMap;
     GameObject rainbowShard;
-    private GameObject currentShard;
+    private GameObject _currentShard;
     public AudioSource rainbowShardGlow;
     public AudioSource rainbowShardClick;
 
-
- 
-
-
-
     private void OnEnable()
     {
-        health.onBossHurt += RainbowShard;
+        BossHealth.onBossHurt += RainbowShard;
     }
 
     private void OnDisable()
     {
-        health.onBossHurt -= RainbowShard;
+        BossHealth.onBossHurt -= RainbowShard;
     }
 
 
@@ -50,17 +42,18 @@ public class RainbowManager : MonoBehaviour
                 RaycastHit rayHit;
                 if (Physics.Raycast(ray, out rayHit, 100.0f))
                 {
-                    if (rayHit.collider.tag == rainbowNames[rainbowTracker]) 
+
+                    //When the Rainbow shard is tapped, stop the music, add a piece to the counter, destroy the shard, and restart the timeline. 
+                    if (rayHit.collider.tag == rainbowNames[rainbowTracker])
                     {
-                      rainbowShardGlow.Stop();
-                    rainbowShardClick.Play();
+                        rainbowShardGlow.Stop();
+                        rainbowShardClick.Play();
                         rainbowCounter[rainbowTracker].SetActive(true);
-                     currentShard = GameObject.FindGameObjectWithTag(rainbowNames[rainbowTracker]);
-                        print(currentShard.name);
+                        _currentShard = GameObject.FindGameObjectWithTag(rainbowNames[rainbowTracker]);
+                        //  print(_currentShard.name);
                         TimelineControl.StartTimeline(_playableDirector);
-                        //fallback in case it doesn't destroy like it's supposed to. :\
-                        currentShard.SetActive(false);
-                        Destroy(currentShard);
+                        // _currentShard.SetActive(false);
+                        Destroy(_currentShard);
                         rainbowTracker++;
                         _rainbowEnabled = false;
 
@@ -69,29 +62,22 @@ public class RainbowManager : MonoBehaviour
             }
 
         }
-       
+
 
     }
 
 
-
+    //This gets called when the boss is defeated. Spawns in front of the camera and restarts the timeline
     public void RainbowShard()
     {
-
-      
         ObjectSpawner.SpawnObject(rainbowPrefabs[rainbowTracker], distance);
         rainbowShardGlow.Play();
         _rainbowEnabled = true;
-      TimelineControl.StartTimeline(_playableDirector);
-     
-     
+        TimelineControl.StartTimeline(_playableDirector);
+
+
     }
 
-    
-
-
-
-  
 
 
 }

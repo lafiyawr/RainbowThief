@@ -1,15 +1,14 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class bwFade : MonoBehaviour
+public class BWFade : MonoBehaviour
 {
-    // Start is called before the first frame update
 
 
-    private Volume bwVolume;
-    private ColorAdjustments bwgrading;
+
+    private Volume _bwVolume;
+    private ColorAdjustments _bwgrading;
     float timeElapsed;
     public float lerpDuration = 5;
     float startValue = 0;
@@ -19,21 +18,21 @@ public class bwFade : MonoBehaviour
     void Start()
     {
         var getVolume = GetComponent<Volume>();
-        bwVolume = getVolume;
-        bwVolume.profile.TryGet<ColorAdjustments>(out bwgrading);
+        _bwVolume = getVolume;
+        _bwVolume.profile.TryGet<ColorAdjustments>(out _bwgrading);
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
         if (startFade)
         {
-            // this trigger the post processing color saturation to fade to black and white after a certain duration.
+            // This triggers the post processing color saturation to fade to black and white after a specified duration.
             if (timeElapsed < lerpDuration)
             {
-                bwgrading.saturation.value = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
+                _bwgrading.saturation.value = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
                 timeElapsed += Time.deltaTime;
                 //  print(timeElapsed);
 
@@ -48,10 +47,10 @@ public class bwFade : MonoBehaviour
 
         if (endFade)
         {
-            // this trigger the post processing color saturation to fade to black and white after a certain duration.
+            // This trigger the post processing color saturation to fade back to color after a specified duration.
             if (timeElapsed < lerpDuration)
             {
-                bwgrading.saturation.value = Mathf.Lerp(endValue, startValue, timeElapsed / lerpDuration);
+                _bwgrading.saturation.value = Mathf.Lerp(endValue, startValue, timeElapsed / lerpDuration);
                 timeElapsed += Time.deltaTime;
                 //  print(timeElapsed);
 
@@ -68,12 +67,12 @@ public class bwFade : MonoBehaviour
 
     }
 
-    public void fadeStart()
+    public void FadeStart()
     {
         startFade = true;
     }
 
-    public void fadeEnd()
+    public void FadeEnd()
     {
         timeElapsed = 0;
         endFade = true;
