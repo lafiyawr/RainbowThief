@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 8c3f573d8218f494883760610e4f7eba
   - enabled: 1
-    path: Assets/Scenes/Rainbow1.unity
+    path: Assets/Scenes/Rainbow.unity
     guid: 89c9cb96c40b0ba4192a7c80ca8e9ce5
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 302e65941547e604bbc32126a71e289a,
       type: 2}

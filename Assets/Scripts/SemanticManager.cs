@@ -106,14 +106,17 @@ public class SemanticManager : MonoBehaviour
                             if (list.Count > 0)
                             {
                                 _channel = list[0];
-                                print(_channel);
+                              //  print(_channel);
+                              //if someone touches a part of the screen that is recognized as your preferred segmentation (e.g. "sky"), start 
+                              //the timeline and moves the rainbow at a certain distance away from the camera.
                                 if (_channel == _preferredSegmentation)
                                 {
 
                                     TimelineControl.StartTimeline(_playableDirector);
                                     StartCoroutine(skyTapped());
 
-                                    var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
+                                    // var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
+                                    var newPos = Camera.main.transform.TransformPoint(0 ,5f, 1f * distance);
                                     var newRot = Camera.main.transform.rotation;
 
                                     rainbow.transform.position = newPos;

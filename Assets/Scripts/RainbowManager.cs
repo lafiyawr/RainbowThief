@@ -49,10 +49,8 @@ public class RainbowManager : MonoBehaviour
                         rainbowShardGlow.Stop();
                         rainbowShardClick.Play();
                         rainbowCounter[rainbowTracker].SetActive(true);
-                        _currentShard = GameObject.FindGameObjectWithTag(rainbowNames[rainbowTracker]);
-                        //  print(_currentShard.name);
+                        _currentShard = GameObject.FindGameObjectWithTag(rainbowNames[rainbowTracker]);                    
                         TimelineControl.StartTimeline(_playableDirector);
-                        // _currentShard.SetActive(false);
                         Destroy(_currentShard);
                         rainbowTracker++;
                         _rainbowEnabled = false;
