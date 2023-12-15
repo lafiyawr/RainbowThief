@@ -115,8 +115,8 @@ public class SemanticManager : MonoBehaviour
                                     TimelineControl.StartTimeline(_playableDirector);
                                     StartCoroutine(skyTapped());
 
-                                    // var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
-                                    var newPos = Camera.main.transform.TransformPoint(0 ,5f, 1f * distance);
+                                     var newPos = Camera.main.transform.TransformPoint(Vector3.forward * distance);
+                                   // var newPos = Camera.main.transform.TransformPoint(0 ,5f, 1f * distance);
                                     var newRot = Camera.main.transform.rotation;
 
                                     rainbow.transform.position = newPos;
@@ -161,7 +161,7 @@ public class SemanticManager : MonoBehaviour
                 rainbow.transform.rotation = newRot;
 
                 rainbow.SetActive(true);
-                _text.text = "rainbow has appeared!";
+               // _text.text = "rainbow has appeared!";
                 spawnRainbow = false;
 
 

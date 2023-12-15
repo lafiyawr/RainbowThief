@@ -37,7 +37,7 @@ public class BossHealth : MonoBehaviour
         timelineObj = GameObject.FindGameObjectWithTag("timeline");
         _playableDirector = timelineObj.GetComponent<PlayableDirector>();
         parentAnim.speed = bossSpeed;
-        bossMusic.Play();
+    
     }
 
 

@@ -35,7 +35,7 @@ public class RainbowManager : MonoBehaviour
 
         if (_rainbowEnabled)
         {
-            print("enabled!");
+           // print("enabled!");
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

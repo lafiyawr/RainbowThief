@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-//This script controls when the background music playsE
+//This script controls when the background music plays
 
 public class AudioManager : MonoBehaviour
 {
@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
     public IEnumerator FadeOut()
     {
         float currentVolume = mainTheme.volume;
-        print("music ending");
+       // print("music ending");
         while (mainTheme.volume > 0)
         {
             mainTheme.volume -= currentVolume * Time.deltaTime / _fadeTime;
