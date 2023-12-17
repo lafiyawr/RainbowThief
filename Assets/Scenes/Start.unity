@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 67427469}
   - component: {fileID: 67427468}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DirectionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,10 +488,10 @@ RectTransform:
   - {fileID: 623867758}
   m_Father: {fileID: 523707299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 370}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0.0107421875, y: 290}
+  m_SizeDelta: {x: -711.93, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526798336
 MonoBehaviour:
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 623867760}
   - component: {fileID: 623867759}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 876303294}
   - component: {fileID: 876303293}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1181,10 +1181,10 @@ RectTransform:
   - {fileID: 67427467}
   m_Father: {fileID: 523707299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -152}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -10.000977, y: -115}
+  m_SizeDelta: {x: -661.27, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052588909
 MonoBehaviour:

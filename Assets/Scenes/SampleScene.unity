@@ -617,6 +617,7 @@ MonoBehaviour:
   _playableDirector: {fileID: 1654908714}
   spawnRainbow: 0
   distance: 50
+  debugSegmentation: 0
 --- !u!4 &463591200
 Transform:
   m_ObjectHideFlags: 0
@@ -644,11 +645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd01a262a511e2a438ad8a208303ef83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraMan: {fileID: 1248842821}
-  _semanticMan: {fileID: 1248842826}
-  _text: {fileID: 4702134278102050708}
-  _image: {fileID: 2611781014542802893}
-  _material: {fileID: 2100000, guid: 90e5315e1328df649abbd434ea964043, type: 2}
 --- !u!1 &601401084
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 2629161782442413907, guid: 21c2b9d5f2919ac45921b0b928c9c5af, type: 3}
+  click: {fileID: 0}
 --- !u!114 &601401087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpDuration: 5
   startFade: 0
+  endFade: 0
 --- !u!114 &832575521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,6 +2175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 701
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108530175099563798, guid: d0bcbfa2f88e21e45981d4475d51d8c3,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4274154285094201321, guid: d0bcbfa2f88e21e45981d4475d51d8c3,
         type: 3}
