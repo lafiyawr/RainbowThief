@@ -57,6 +57,8 @@ Once you have your locations downloaded, you  can dragged the zipped file into t
 
 <h3>Testing the project with custom locations</h3>
 
+<table><tr><td><strong>NOTE:</strong> I used TextMesh Pro for all of the text in the game. In order for the text to show up in the build, please make sure to go to <strong>Window</strong> > <strong>TextMeshPro</strong> > <strong>Import TMP Essential Resources.</strong> </td></tr></table>
+
 1. On the <strong>XR Orgin</strong> GameObject, find the <strong>AR Location Manager</strong> component.
 2. Click <kbd>Add AR Location</kbd>  and then drag or select one of your location manifests to the <strong>AR Location Manifest</strong> slot.
 3. Go back to <strong>AR Location Manager</strong> on <strong>XR Orgin</strong>.  When you click on the <kbd>AR Location</kbd> dropdown, you should see a list of the locations I've already included as well as any you've imported. 
@@ -90,6 +92,8 @@ On the <strong>LocationManager</strong> there are two timeline signals that will
 7. On the signal called <strong>location2</strong> changed the number to the number of your preferred 2nd location.
 
 <img src="https://badchickstudios.com/stolenrainbow/locationtracking.png" />
+
+8. In the game, the penguin drops "clues" which are images of the locations you need to find. You can change the location images to your new images instead. The map image game objects are located under <strong>MainCanvas</strong> > <strong>MapImages</strong> > and then switching out the  <strong>Map1</strong> and <strong>Map2</strong> image to correspond with the 1st and 2nd location. 
 
 <table><tr><td><strong>NOTE:</strong> In order to track a new location, you first have to stop tracking the current location. </strong>The <strong>resetlocation</strong> signal calls a function called <strong>resetTracking</strong> that does that. It is called on the timeline before the new location is tracked.  </td></tr></table>
 

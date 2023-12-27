@@ -109,7 +109,7 @@ MonoBehaviour:
     m_Start: 69.5333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 8055601224033026098}
-    m_Duration: 4.916666666666671
+    m_Duration: 72.83333333333337
     m_TimeScale: 1
     m_ParentTrack: {fileID: -8343953113665482638}
     m_EaseInDuration: 0
@@ -1752,7 +1752,7 @@ MonoBehaviour:
     m_Start: 62.566666666666634
     m_ClipIn: 0
     m_Asset: {fileID: -7767882124466351543}
-    m_Duration: 11.88333333333334
+    m_Duration: 78.63333333333335
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2475008689073100320}
     m_EaseInDuration: 0
@@ -3857,6 +3857,22 @@ MonoBehaviour:
     - {fileID: -750412042998744018}
     - {fileID: -7423410012529825719}
     - {fileID: -4121620618557088035}
+--- !u!114 &2201039545429831777
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 62.43333333333318
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: ffddd7d79705a4c4881c8c466c088eda, type: 2}
 --- !u!114 &2203814839028205597
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4425,6 +4441,30 @@ MonoBehaviour:
     color: {r: 0.12589, g: 0.20332801, b: 0.38679248, a: 1}
     fontSize: 60
     text: Take this star shooter and get him!
+--- !u!114 &4038038554445092756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 9129755469333726525}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: 2201039545429831777}
 --- !u!114 &4126492971980650709
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4802,7 +4842,7 @@ MonoBehaviour:
     m_Start: 62.583333333333314
     m_ClipIn: 0
     m_Asset: {fileID: 3225717873677110178}
-    m_Duration: 11.866666666666667
+    m_Duration: 78.61666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: 5439561337898769276}
     m_EaseInDuration: 0
@@ -5520,25 +5560,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -5565,25 +5587,7 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -5625,11 +5629,11 @@ MonoBehaviour:
     m_Start: 62.583333333333314
     m_ClipIn: 0
     m_Asset: {fileID: -1427413894376200339}
-    m_Duration: 11.866666666666667
+    m_Duration: 79.78333333333336
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7713788319964223715}
     m_EaseInDuration: 0
-    m_EaseOutDuration: 0
+    m_EaseOutDuration: 1
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
@@ -7036,7 +7040,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -7999,7 +8021,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -8098,7 +8138,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
-  m_Name: Signals
+  m_Name: lsgnals
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
@@ -8271,6 +8311,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: -8343953113665482638}
   - {fileID: -6763149624918606126}
+  - {fileID: 4038038554445092756}
   m_Clips: []
   m_Markers:
     m_Objects: []
