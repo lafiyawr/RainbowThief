@@ -2713,7 +2713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetFrameRate: 20
-  _optimalOcclusionDistanceMode: 0
+  _optimalOcclusionDistanceMode: 1
   _principalOccludee: {fileID: 454397931}
   _isOcclusionSuppressionEnabled: 0
   _semanticSegmentationManager: {fileID: 1248842826}
