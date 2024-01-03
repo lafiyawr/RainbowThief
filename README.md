@@ -8,7 +8,7 @@ Stolen Rainbow is a demo game showcasing several of the Niantic Lightship ARDK f
 In this mini game, a magical rainbow makes a rare appearance on Earth and is promptly stolen by an evil penguin. Doing so turns the world black and white. You have to find and battle the penguin to retrieve pieces of the rainbow and restore color to the world. Oh, and there's a talking star. 
 
 
-You can view a [demo here](https://www.youtube.com/watch?v=LrLliFCZD9c&ab_channel=BadChickStudios).
+You can view a [demo here](https://www.youtube.com/watch?v=UHjpVsHU6Kg&ab_channel=BadChickStudios).
 
 
 # WALKTHROUGH
